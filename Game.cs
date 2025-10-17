@@ -9,8 +9,10 @@ namespace Labb2_ConsolePong
 {
     internal class Game
     {
-        int width;
-        int height;
+        int width = 40;
+        int height = 20;
+        Paddle player1 = new Paddle((9, 10), 3);
+        Paddle player2 = new Paddle((40, 10), 3);
 
         public void StartGame()
         {
@@ -18,8 +20,6 @@ namespace Labb2_ConsolePong
             width = Console.WindowWidth;
             height = Console.WindowHeight;
             Console.CursorVisible = false;
-
-
         }
 
         public bool Run()
