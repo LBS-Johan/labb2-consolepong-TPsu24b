@@ -7,19 +7,25 @@ namespace Labb2_ConsolePong
 {
     public class Paddle
     {
-        (int x, int y) position;
+        public (int x, int y) position;
         int size;
         public Paddle((int x, int y) newPos, int newSize)
         {
             position = newPos;
             size = newSize;
         }
-        void Move(int yAmount)
+        public void MoveY(int yAmount)
         {
-            position.y += yAmount;
+            if (position.y + yAmount - 1 == 19 || position.y + yAmount + 1 == 1)
+            {
+            }
+            else
+                position.y += yAmount;
         }
-        void Draw()
+        public void Draw()
         {
+            Console.SetCursorPosition(10, position.y);
+            Console.Write(position.y);
             for (int i = -1; i < size - 1; i++)
             {
                 Console.SetCursorPosition(position.x, position.y + i);
