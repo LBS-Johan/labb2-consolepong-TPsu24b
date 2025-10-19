@@ -9,6 +9,7 @@ namespace Labb2_ConsolePong
     {
         public (int x, int y) position;
         int size;
+        public int points = 0;
         public Paddle((int x, int y) newPos, int newSize)
         {
             position = newPos;
@@ -22,10 +23,18 @@ namespace Labb2_ConsolePong
             else
                 position.y += yAmount;
         }
-        public void Draw()
+        public void UnDraw()
         {
-            Console.SetCursorPosition(10, position.y);
-            Console.Write(position.y);
+            for (int i = -1; i < size - 1; i++)
+            {
+                Console.SetCursorPosition(position.x, position.y + i);
+                Console.Write(' ');
+            }
+        }
+        public void Draw(int pointX)
+        {
+            Console.SetCursorPosition(pointX, 19);
+            Console.Write(points);
             for (int i = -1; i < size - 1; i++)
             {
                 Console.SetCursorPosition(position.x, position.y + i);
