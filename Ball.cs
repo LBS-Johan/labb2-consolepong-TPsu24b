@@ -26,10 +26,10 @@ namespace Labb2_ConsolePong
         }
         public void CheckCollisions(Paddle player1, Paddle player2, int width, int height)
         {
-            if (position.y == 20 || position.y == 0)
+            if (position.y >= 19 || position.y >= 1)
                 velocity.y *= -1;
             if (position.x == 0 || position.x == width)
-                position = (41, 20);
+                position = (40, 20);
             if(position.x == player1.position.x || position.x == player2.position.x)
                 velocity.x *= -1;
             

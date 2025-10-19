@@ -2,17 +2,16 @@
 {
     internal class Game
     {
-        int width = 81;
+        int width = 80;
         int height = 40;
         Paddle player1 = new Paddle((0, 10), 3);
-        Paddle player2 = new Paddle((81, 10), 3);
-        Ball ball = new Ball((41, 20),(1,1));
+        Paddle player2 = new Paddle((80, 10), 3);
+        Ball ball = new Ball((20, 10),(1,1));
 
         public void StartGame()
         {
             // Setup konsol-fönstret
-            width = Console.WindowWidth;
-            height = Console.WindowHeight;
+            Console.SetBufferSize(width, height);
             Console.CursorVisible = false;
         }
 
@@ -20,28 +19,15 @@
         {
             //Töm hela skärmen i början av varje uppdatering.
             Console.Clear();
-
             if (Input.IsPressed(ConsoleKey.W))
-            {
-                //Flytta spelare 1 uppåt
                 player1.MoveY(-1);
-            }
             if (Input.IsPressed(ConsoleKey.S))
-            {
-                //Flytta spelare 1 nedåt
                 player1.MoveY(1);
-            }
-
             if (Input.IsPressed(ConsoleKey.UpArrow))
-            {
-                //Flytta spelare 2 uppåt
                 player2.MoveY(-1);
-            }
             if (Input.IsPressed(ConsoleKey.DownArrow))
-            {
-                //Flytta spelare 2 nedåt
                 player2.MoveY(1);
-            }
+
             player1.Draw();
             player2.Draw();
             ball.Move();
