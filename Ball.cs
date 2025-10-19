@@ -24,7 +24,6 @@ namespace Labb2_ConsolePong
                 position.y += velocity.y;
             else
                 position.y += 1;
-
         }
         public void UnDraw()
         {
@@ -70,7 +69,6 @@ namespace Labb2_ConsolePong
                 velocity.x *= -1;
                 velocity.y = -2;
             }
-
         }
     }
 }
