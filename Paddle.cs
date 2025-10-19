@@ -17,11 +17,10 @@ namespace Labb2_ConsolePong
         }
         public void MoveY(int yAmount)
         {
-            if (position.y + yAmount - 1 == 19 || position.y + yAmount + 1 == 1)
+            if (position.y + yAmount - 1 != 19 || position.y + yAmount + 1 != 1)
             {
-            }
-            else
                 position.y += yAmount;
+            }
         }
         public void UnDraw()
         {
@@ -33,7 +32,7 @@ namespace Labb2_ConsolePong
         }
         public void Draw(int pointX)
         {
-            Console.SetCursorPosition(pointX, 19);
+            Console.SetCursorPosition(pointX, 40);
             Console.Write(points);
             for (int i = -1; i < size - 1; i++)
             {

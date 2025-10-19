@@ -11,7 +11,6 @@
         public void StartGame()
         {
             // Setup konsol-fönstret
-            Console.SetWindowSize(width, height);
             width = Console.WindowWidth;
             height = Console.WindowHeight;
             Console.CursorVisible = false;
