@@ -30,9 +30,9 @@ namespace Labb2_ConsolePong
                 Console.Write(' ');
             }
         }
-        public void Draw(int pointX)
+        public void Draw()
         {
-            Console.SetCursorPosition(pointX, 40);
+            Console.SetCursorPosition(position.x, Console.WindowHeight-1);
             Console.Write(points);
             for (int i = -1; i < size - 1; i++)
             {

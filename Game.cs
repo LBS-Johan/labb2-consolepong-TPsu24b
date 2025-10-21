@@ -25,20 +25,32 @@
                 player1.MoveY(-1);
             if (Input.IsPressed(ConsoleKey.S))
                 player1.MoveY(1);
+            player2.position.x = Console.BufferWidth - 1;
             if (Input.IsPressed(ConsoleKey.UpArrow))
                 player2.MoveY(-1);
             if (Input.IsPressed(ConsoleKey.DownArrow))
                 player2.MoveY(1);
 
-            player1.Draw(11);
-            player2.Draw(69);
+            player1.Draw();
+            player2.Draw();
             ball.UnDraw();
             ball.Move();
             ball.Draw();
+            DrawCenterLine();
             ball.CheckCollisions(player1, player2, width, height);
             //Return true om spelet ska fortsätta
             return true;
 
+        }
+        public void DrawCenterLine()
+        {
+            for (int i = 0; i < Console.WindowHeight; i++)
+            {
+                if(i % 2 == 0)
+                {
+                    Console.SetCursorPosition(Console.WindowWidth / 2, i);
+                }
+            }
         }
     }
 }
