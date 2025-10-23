@@ -15,15 +15,18 @@ namespace Labb2_ConsolePong
             position = pos;
             velocity = vel;
         }
-        public void Move()
+        public void Move(int height)
         {
-            position.x += velocity.x;
-            if ((position.y + velocity.y)! >= 20)
+            int nextPos = position.y + velocity.y;
+            if (nextPos > -1 && nextPos < height)
+            {
+                position.x += velocity.x;
                 position.y += velocity.y;
-            else if ((position.y + velocity.y)! >= 0)
-                position.y += velocity.y;
+            }
             else
-                position.y += 1;
+            {
+                velocity.y *= -1;
+            }
         }
         public void UnDraw()
         {
@@ -40,17 +43,15 @@ namespace Labb2_ConsolePong
             if (position.x == 0)
             {
                 UnDraw();
-                position = (40, 10);
+                position = (Console.WindowWidth/2, Console.WindowHeight/2);
                 player2.points++;
             }
-            if (position.x == 80)
+            if (position.x == Console.WindowWidth)
             {
                 UnDraw();
-                position = (40, 10);
+                position = (Console.WindowWidth/2, Console.WindowHeight/2);
                 player1.points++;
             }
-            if (position.y == 20 || position.y == 0)
-                velocity.y *= -1;
             if (position == player1.position || position == player2.position)
             {
                 velocity.x *= -1;
@@ -59,12 +60,12 @@ namespace Labb2_ConsolePong
                 else
                     velocity.y = 1;
             }
-            if (position == (player1.position.x, player1.position.y + 1) || position == (player2.position.x, player2.position.y + 1))
+            if (position == (player1.position.x, player1.position.y + player1.size/2) || position == (player2.position.x, player2.position.y + player2.size / 2))
             {
                 velocity.x *= -1;
                 velocity.y = 2;
             }
-            if (position == (player1.position.x, player1.position.y - 1) || position == (player2.position.x, player2.position.y - 1))
+            if (position == (player1.position.x, player1.position.y - player1.size / 2) || position == (player2.position.x, player2.position.y - player2.size / 2))
             {
                 velocity.x *= -1;
                 velocity.y = -2;
