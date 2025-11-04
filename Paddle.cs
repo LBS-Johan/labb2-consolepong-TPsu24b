@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 
 namespace Labb2_ConsolePong
 {
     public class Paddle
     {
+        //poor mans vector2
         public (int x, int y) position;
+        //adds half the size to the top and bottom, must be an even number
         public int size;
         public int points = 0;
         public Paddle((int x, int y) newPos, int newSize)
@@ -20,7 +23,7 @@ namespace Labb2_ConsolePong
             int newPosY = position.y + yAmount;
 
             // Clamp the paddle within the screen boundaries
-            if (newPosY < 1)
+            if (newPosY <= 0 + size/2)
                 yAmount = 0;
             else if (newPosY >=  height - size/2)
                 yAmount = 0;
@@ -31,6 +34,7 @@ namespace Labb2_ConsolePong
         {
             for (int i = -1; i < size; i++)
             {
+                
                 Console.SetCursorPosition(position.x, position.y + i);
                 Console.Write(' ');
             }
