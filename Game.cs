@@ -19,7 +19,7 @@
 
         public bool Run()
         {
-            
+            //set width and height and player 2 pos
             width = Console.WindowWidth;
             height = Console.WindowHeight;
             player2.position.x = width - 2;
@@ -43,12 +43,14 @@
             ball.Move(height);
             ball.Draw();
             ball.CheckCollisions(player1, player2, width, height);
+            //draw centerline
             DrawCenterLine();
 
             //Return true om spelet ska fortsätta
             return true;
 
         }
+        //for every other height draw |
         public void DrawCenterLine()
         {
             for (int i = 0; i < height; i++)
